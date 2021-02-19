@@ -17,7 +17,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    // github pagesの制約上明示的にfaviconのpathを指定する必要がある
+    // ローカルでは取得できなくなるがproductionでは表示できるので問題なし
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: 'army-knife/favicon.ico' },
+    ],
     htmlAttrs: {
       lang: 'ja',
     },
