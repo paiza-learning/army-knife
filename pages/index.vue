@@ -35,6 +35,11 @@ export default Vue.extend({
           description: 'ソースコードに行番号を付与します。',
           link: '/set_number',
         },
+        {
+          name: 'canary',
+          description: 'SQL の読み仮名を生成します。',
+          link: '/canary',
+        },
       ],
     }
   },
