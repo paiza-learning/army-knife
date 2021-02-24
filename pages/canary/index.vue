@@ -3,6 +3,10 @@
     <h1>canary</h1>
     <p>SQL の読み仮名を生成します。</p>
 
+    <b-input-group prepend="区切り文字">
+      <b-form-input v-model="delimiter"></b-form-input>
+    </b-input-group>
+
     <textarea v-model="query" class="form-control" rows="15"></textarea>
     <textarea :value="yomi" class="form-control" rows="10" readonly> </textarea>
 
@@ -28,6 +32,7 @@ export default Vue.extend({
   data() {
     return {
       dict: new Map(),
+      delimiter: '... ',
       query: 'SELECT COUNT(*) FROM customer;',
     }
   },
@@ -62,7 +67,7 @@ export default Vue.extend({
           tmp.push(this.dict.get(line) || line)
         }
       }
-      return tmp.join('... ')
+      return tmp.join(this.delimiter)
     },
   },
   created() {
