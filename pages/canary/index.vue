@@ -28,7 +28,7 @@ export default Vue.extend({
   data() {
     return {
       dict: new Map(),
-      query: 'SELECT * FROM customer;',
+      query: 'SELECT COUNT(*) FROM customer;',
     }
   },
   computed: {
@@ -53,6 +53,11 @@ export default Vue.extend({
           tmp.push(this.dict.get(sp[0]))
           tmp.push(this.dict.get('.'))
           tmp.push(this.dict.get(sp[1]))
+        } else if (line.includes('(')) {
+          const sp = line.split('(')
+          tmp.push(this.dict.get(sp[0]))
+          tmp.push(this.dict.get('('))
+          tmp.push(this.dict.get(sp[1].substr(0, sp[1].length - 1)))
         } else {
           tmp.push(this.dict.get(line) || line)
         }
