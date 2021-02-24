@@ -41,7 +41,8 @@ export default Vue.extend({
       const sql = this.query
         .replace(/\r?\n/g, ' ')
         .replace(/ +/g, ' ')
-        .replace(/;/, '')
+        .replace(';', '')
+        .replace(',', '')
 
       const tmp = []
       for (const line of sql.split(' ')) {
